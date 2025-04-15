@@ -21,3 +21,12 @@ class TestCalculoNumeros(unittest.TestCase):
     def test_ingreso_negativo(self, mock_input):
         with self.assertRaises(NumeroDebeSerPositivo):
             ingrese_numero()
+
+    @patch('builtins.input', return_value='abc')
+    def test_ingreso_letras(self, mock_input):
+        with self.assertRaises(ValueError):
+            ingrese_numero()
+
+
+    if __name__ == '__main__':
+     unittest.main()        
